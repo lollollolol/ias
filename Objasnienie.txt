@@ -1,0 +1,8 @@
+Rzeczywiste nazwy wszystkich plików
+
+index.php - plik startowy projektu w g³ównym folderze
+hub.php - plik zawieraj¹cy instrukcje huba
+index.php - ka¿dy z providerów 1-4 opiera siê na pliku index.php w danym folderze
+
+
+Dla rozró¿nienia plików w repozytorium github zmieniono nazwy.
