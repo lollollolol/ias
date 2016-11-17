@@ -1,48 +1,34 @@
 
 <?php
-//$provider1 = file_get_contents("http://localhost/provider1");
-//
-//$tablicawynp1 = json_decode($provider1, true);
-//
-//var_dump($tablicawynp1);
-//
-//echo $_GET["sortby"];
 
 
 
 
-// take data from providers
+
+
 $provider1Response = file_get_contents('http://localhost//provider1');
 $provider2Response = file_get_contents('http://localhost//provider2');
 $provider3Response = file_get_contents('http://localhost//provider3');
 $provider4Response = file_get_contents('http://localhost//provider4');
 
-// parse data from JSON to arrays
+
 $p1_products =  json_decode($provider1Response, true);
 $p2_products = json_decode($provider2Response, true);
 $p3_products = json_decode($provider3Response, true);
 $p4_products = json_decode($provider4Response, true);
 
-// transform arrays with data and merge it
 $items = array_merge(convertP1_Products($p1_products), convertP2_Products($p2_products), convertP3_Products($p3_products), convertP4_Products($p4_products));
 
-//// make some random order in response
-//shuffle($items);
 
-//// show response in JSON
-//header('Content-Type: application/json');
-//echo json_encode($items);
-
-// tutaj musze posortowac
 usort($items, 'compare');
 
 
  
-// show response in JSON
+
 header('Content-Type: application/json');
 echo json_encode($items);
 
-//funcja porownania
+
 function compare($a, $b) {
   return strcasecmp($a[$_GET["nazwa"]], $b[$_GET["nazwa"]]);
 }
